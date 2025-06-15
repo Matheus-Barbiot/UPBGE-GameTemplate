@@ -1,0 +1,229 @@
+{
+  "main": {
+    "id": "821ac9e0e09912d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "dc858ddb6153f56d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ebd073099b3e08f6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Documentation/Menu & Pause.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Menu & Pause"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "696c43915cc207e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "47c49015efdc915c",
+        "type": "tabs",
+        "dimension": 42.5207756232687,
+        "children": [
+          {
+            "id": "43b272332de6d32b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "73f178de3e893775",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#cena",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "94594aa7d81082a5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2d284759b3b98e1d",
+        "type": "tabs",
+        "dimension": 57.4792243767313,
+        "children": [
+          {
+            "id": "e19b825e09d0fca9",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Visualização em gráfico"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297
+  },
+  "right": {
+    "id": "01b9e99db738fe84",
+    "type": "split",
+    "children": [
+      {
+        "id": "854cd5761f763437",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4baa2200cd7da887",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Documentation/Menu.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos para Menu"
+            }
+          },
+          {
+            "id": "163f7af5b243bb12",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "game-template.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída para game-template"
+            }
+          },
+          {
+            "id": "7c3ed8b9db2ee3fb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "2281ebefc76925ad",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 324.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "e19b825e09d0fca9",
+  "lastOpenFiles": [
+    "Documentation/Menu & Pause.md",
+    "Documentation/Intro.md",
+    "2025-06-14.md",
+    "Project/Assets/Textures/menu/gradint_display_01.png",
+    "Project/Assets/Textures/menu/button_default.png",
+    "Project/Assets/Textures/menu/arrow-icon.png",
+    "Project/Assets/Textures/menu",
+    "Project/Assets/Textures/Nova pasta",
+    "Project/Assets/Textures/texture_00.png",
+    "Project/Assets/Textures/gradint_display_01.png",
+    "Project/Assets/Textures/arrow-icon.png",
+    "Project/Scripts/config/config_mouse.py",
+    "Project/Scripts/config/InputMapping.py",
+    "Project/Scripts/config/config_user.py",
+    "Project/Scripts/logic/logic_game.py",
+    "Project/Scripts/logic/logic_pause.py",
+    "Project/Scripts/logic/logic_options.py",
+    "Project/Scripts/logic/logic_menu.py",
+    "Project/Scripts/logic/logic_intro.py",
+    "Documentation/UserConfig.md",
+    "Documentation/Mouse.md",
+    "Documentation/Options.md",
+    "InputMapping.md",
+    "Documentation/InputMapping.md",
+    "Project/Assets/Textures/button_default.png",
+    "Documentation/Images/Pasted image 20250613211930.png",
+    "Documentation/Images/Pasted image 20250613211808.png",
+    "Documentation/Images/Pasted image 20250613205802.png",
+    "Documentation/_Guia.md",
+    "Documentation/Pause.md",
+    "Documentation/Game.md",
+    "Objetos.md",
+    "MenuComponent.md",
+    "().md",
+    "[[Menu.md",
+    "game-template.md"
+  ]
+}
