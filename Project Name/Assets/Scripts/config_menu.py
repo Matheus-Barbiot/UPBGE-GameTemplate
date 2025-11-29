@@ -1,113 +1,56 @@
-#icon=OUTLINER_DATA_CAMERA
+#icon=SYNTAX_ON
 import bge
-from collections import OrderedDict
 
-import config_mouse
-import config_menu
+class Menu:
+    """
+    Componente de funções gerais de menu.
+    Permite navegar entre cenas: anterior, próxima, principal ou qualquer outra.
+    """
+
+    def __init__(self, home='', previous='', next=''):
+        # Cena atual
+        self.current = bge.logic.getCurrentScene()
+        
+        # Definições
+        self.home = self._validate_scene(home)
+        self.previous = self._validate_scene(previous)
+        self.next = self._validate_scene(next)
+
+    # ---------------- Funções de navegação ---------------- #
+
+    def back(self):
+        if not self.previous:
+            print('Nenhum menu anterior definido')
+            return False
+        return self._replace(self.previous)
 
 
-class Menu(bge.types.KX_PythonComponent):
-    args = OrderedDict([
-    ('Game scene', 'Game'),
-    ('Main Menu', 'Menu'),
-    ('Previous scene (optional)', ''),
-    ])
-    
-    def start(self, args): 
-        # Carrega o globalDict
-        bge.logic.loadGlobalDict()
-        
-        # Pega o nome do meu principal e a cena do jogo
-        self.home = args['Main Menu']
-        self.game = args['Game scene']
-        
-        # Pega a cena anterior definida OU a do globalDict
-        self.previous = args['Previous scene (optional)'] or bge.logic.globalDict.get('Previous menu')
-        
-        
-        # Objetos do mouse e do menu: importantes para a logica funcionar
-        self.mouse = config_mouse.Mouse(visible=True)
-        self.menu = config_menu.Menu(self.home, self.previous)
-        
-        # Funções pre definidas de cada botão
-        self.commands_dict = {
-            'play'    : self.play,
-            'restart' : self.play,
-            'quit'    : self.quit,
-            'resume'  : self.resume,
-            'back'    : self.menu.back,
-            'home'    : self.menu.return_home
-        }
-        
-#======================= Funções genéricas de menu ==============================
-    
-    def update_previous(self):   
-        # Define a cena atual como a anterior e salva
-        bge.logic.globalDict['Previous menu'] = self.object.scene.name
-        bge.logic.saveGlobalDict()
-        
-        
-    def play(self):
-        # Dá play no jogo
-        self.menu.change(self.game)
-        
-        
-    def quit(self):
-        # Sai do jogo
-        bge.logic.globalDict['Previous menu'] = ''
-        bge.logic.saveGlobalDict()
-        bge.logic.endGame()
-    
-    
-    def resume(self):
-        # Volta para o jogo atual
-        # Verifica se há algum jogo atual
-        for scene in bge.logic.getSceneList():
-            if scene.name == self.game:
-                scene.resume()
-                self.object.scene.end()
-                return
-        
-        return print('Nenhuma cena de game achada')
+    def advance(self):
+        if not self.next:
+            print('Nenhum próximo menu definido')
+            return False
+        return self._replace(self.next)
 
-#===============================================================================#
-        
-    def update(self):             
-        # Verificação:
-        hovered = self.mouse.hover()
-        if not self.mouse.click() or not hovered:
-            return
-        
-        # Verifica se o objeto é um botão,importante para não confundir com outros objetos na cena
-        if not 'button' in hovered:
-            return
-            
-        # verifica se é um objeto de grupo: Importante porque a maioria dos botões dos menus serão instãncias de grupo
-        if hovered.groupObject:
-            button = hovered.groupObject
-            
-        if 'setting' in button:
-            return
-        
-        # propriedades necessárias
-        command = button.get('command')
-        set_scene = button.get('set scene')
-        
-        # salva o globalDict
-        self.update_previous()
-        
-        if command:
-            #aplica o comando especificado
-            command = command.lower()
-            if command in self.commands_dict:
-                self.commands_dict[command]()
-        
-        elif set_scene:
-            #muda a cena específicada
-            scene = set_scene.title()
-            self.menu.change(scene)
-                
-        else:
-            print(f'{button.name}: Nenhum comando encontrado para esse botão:\n defina um "command" com o comando ou \n "set scene" com a cena que deseja acessar.')
-                
-                
+
+    def change(self, scene=''):
+        if not scene or scene not in self.scenes:
+            print(f'Cena "{scene}" não identificada')
+            return False
+        return self._replace(scene)
+
+
+    def return_home(self):
+        if not self.home:
+            print('Nenhum menu principal definido')
+            return False
+        return self._replace(self.home)
+
+    # ---------------- Funções privadas ---------------- #
+
+    def _replace(self, scene_name):
+        try:
+            self.current.replace(scene_name)
+            return True
+        except Exception as e:
+            print(f'Erro ao trocar para cena "{scene_name}": {e}')
+            return False
